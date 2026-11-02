@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Vas Bunga Hanny</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fffaf7;
+            color: #493d38;
+        }
+
+        header {
+            background: #9b7180;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background: #ead5dc;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #654653;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ad7189;
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #e8cbd4, #fff0e9);
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .banner h2 {
+            font-size: 36px;
+            color: #805365;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            margin-bottom: 25px;
+        }
+
+        .banner a {
+            background: #9b7180;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 45px 7%;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #805365;
+            margin-bottom: 25px;
+        }
+
+        .search {
+            width: 80%;
+            max-width: 450px;
+            padding: 12px;
+            border: 1px solid #d8b5c1;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin: 12px 0;
+            color: #805365;
+        }
+
+        .harga {
+            color: #a45f7b;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        button {
+            background: #9b7180;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background: #795363;
+        }
+
+        .promo {
+            background: #ead5dc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .kontak-card {
+            background: white;
+            max-width: 650px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            line-height: 2;
+        }
+
+        .kontak-card a {
+            color: #a45f7b;
+            text-decoration: none;
+        }
+
+        #checkout .kontak-card {
+            text-align: left;
+        }
+
+        #checkout h3 {
+            color: #805365;
+            margin: 20px 0 12px;
+        }
+
+        #checkout input,
+        #checkout textarea,
+        #checkout select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d8b5c1;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        #checkout textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .item-keranjang {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #ead5dc;
+        }
+
+        .item-keranjang button {
+            padding: 6px 12px;
+            margin: 0;
+        }
+
+        #totalHarga {
+            color: #a45f7b;
+            margin-top: 18px;
+        }
+
+        footer {
+            background: #9b7180;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .banner h2 {
+                font-size: 27px;
+            }
+
+            .item-keranjang {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>TOKO VAS BUNGA HANNY</h1>
+        <p>Flowers Make Every Moment Beautiful</p>
+    </header>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#checkout">Checkout</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <!-- BANNER -->
+    <section class="banner" id="home">
+        <h2>Welcome to Toko Vas Bunga Hanny</h2>
+        <p>Hadirkan keindahan bunga dan vas cantik untuk memperindah ruanganmu!</p>
+        <a href="#produk">Lihat Produk</a>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="section" id="produk">
+        <h2>Our Flower Collection</h2>
+
+        <input
+            type="text"
+            class="search"
+            id="search"
+            placeholder="Cari vas atau bunga favoritmu..."
+        >
+
+        <div class="container" id="daftarProduk">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600" alt="Buket Bunga">
+                <h3>Buket Bunga Fresh</h3>
+                <p>Rangkaian bunga cantik untuk berbagai momen.</p>
+                <p class="harga">Rp75.000</p>
+                <button onclick="tambahKeranjang('Buket Bunga Fresh', 75000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600" alt="Vas Keramik">
+                <h3>Vas Keramik</h3>
+                <p>Vas keramik elegan untuk dekorasi rumah.</p>
+                <p class="harga">Rp65.000</p>
+                <button onclick="tambahKeranjang('Vas Keramik', 65000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=600" alt="Bunga Mawar">
+                <h3>Bunga Mawar</h3>
+                <p>Bunga mawar cantik dengan warna menarik.</p>
+                <p class="harga">Rp50.000</p>
+                <button onclick="tambahKeranjang('Bunga Mawar', 50000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=600" alt="Vas Kaca">
+                <h3>Vas Kaca Minimalis</h3>
+                <p>Desain sederhana untuk mempercantik meja.</p>
+                <p class="harga">Rp45.000</p>
+                <button onclick="tambahKeranjang('Vas Kaca Minimalis', 45000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?w=600" alt="Bunga Tulip">
+                <h3>Bunga Tulip</h3>
+                <p>Bunga tulip cantik untuk hadiah spesial.</p>
+                <p class="harga">Rp80.000</p>
+                <button onclick="tambahKeranjang('Bunga Tulip', 80000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600" alt="Vas Estetik">
+                <h3>Vas Estetik</h3>
+                <p>Vas dekorasi dengan tampilan modern.</p>
+                <p class="harga">Rp90.000</p>
+                <button onclick="tambahKeranjang('Vas Estetik', 90000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?w=600" alt="Bunga Matahari">
+                <h3>Bunga Matahari</h3>
+                <p>Bunga cerah yang membuat suasana lebih segar.</p>
+                <p class="harga">Rp60.000</p>
+                <button onclick="tambahKeranjang('Bunga Matahari', 60000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=600" alt="Vas Dekorasi">
+                <h3>Vas Dekorasi</h3>
+                <p>Vas cantik untuk memperindah sudut ruangan.</p>
+                <p class="harga">Rp70.000</p>
+                <button onclick="tambahKeranjang('Vas Dekorasi', 70000)">Tambah ke Keranjang</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600" alt="Bunga Artificial">
+                <h3>Bunga Artificial</h3>
+                <p>Bunga hias cantik untuk dekorasi jangka panjang.</p>
+                <p class="harga">Rp55.000</p>
+                <button onclick="tambahKeranjang('Bunga Artificial', 55000)">Tambah ke Keranjang</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section class="section" id="checkout">
+        <h2>Keranjang & Checkout</h2>
+
+        <div class="kontak-card">
+
+            <h3>Keranjang Belanja</h3>
+
+            <div id="daftarKeranjang">
+                Belum ada produk yang dipilih.
+            </div>
+
+            <h3 id="totalHarga">Total: Rp0</h3>
+
+            <hr>
+
+            <h3>Data Pembeli</h3>
+
+            <input
+                type="text"
+                id="namaPembeli"
+                placeholder="Masukkan nama lengkap"
+            >
+
+            <textarea
+                id="alamatPembeli"
+                placeholder="Masukkan alamat pengiriman"
+            ></textarea>
+
+            <h3>Pilih Metode Pembayaran</h3>
+
+            <select id="metodePembayaran">
+                <option value="">-- Pilih Pembayaran --</option>
+                <option value="DANA">DANA</option>
+                <option value="OVO">OVO</option>
+                <option value="GoPay">GoPay</option>
+                <option value="Transfer Bank">Transfer Bank</option>
+            </select>
+
+            <button onclick="checkout()">
+                Buat Pesanan Sekarang
+            </button>
+
+        </div>
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo">
+        <h2>Special Flower Collection!</h2>
+        <p>Berikan sentuhan keindahan dengan vas dan bunga pilihan.</p>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="section" id="tentang">
+        <h2>About Us</h2>
+
+        <div class="kontak-card">
+            <p>
+                Toko Vas Bunga Hanny menyediakan berbagai pilihan vas
+                dan bunga cantik untuk memperindah rumah, ruangan,
+                serta menjadi hadiah istimewa bagi orang tersayang.
+            </p>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section" id="kontak">
+        <h2>Contact Us</h2>
+
+        <div class="kontak-card">
+
+            <p><b>Nama Toko:</b> Toko Vas Bunga Hanny</p>
+
+            <p>
+                <b>WhatsApp:</b>
+                <a href="https://wa.me/6282328588563" target="_blank">
+                    082328588563
+                </a>
+            </p>
+
+            <p>
+                <b>Instagram:</b>
+                <a href="https://instagram.com/dvahnnyy" target="_blank">
+                    @dvahnnyy
+                </a>
+            </p>
+
+            <p>
+                <b>TikTok:</b>
+                <a href="https://tiktok.com/@difahanny" target="_blank">
+                    @difahanny
+                </a>
+            </p>
+
+            <p>
+                <b>Email:</b>
+                <a href="mailto:adifahaany27@gmail.com">
+                    adifahaany27@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <b>Alamat:</b>
+                Desa Mojo, Kecamatan Ulujami,
+                Kabupaten Pemalang, Jawa Tengah
+            </p>
+
+            <h3>Metode Pembayaran</h3>
+            <p>DANA | OVO | GoPay | Transfer Bank</p>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Toko Vas Bunga Hanny. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        let keranjang = [];
+
+        // Menambahkan produk ke keranjang
+        function tambahKeranjang(nama, harga) {
+
+            keranjang.push({
+                nama: nama,
+                harga: harga
+            });
+
+            tampilkanKeranjang();
+
+            alert(nama + " berhasil ditambahkan ke keranjang!");
+        }
+
+        // Menampilkan keranjang
+        function tampilkanKeranjang() {
+
+            let daftar = document.getElementById("daftarKeranjang");
+            let total = 0;
+
+            if (keranjang.length === 0) {
+
+                daftar.innerHTML = "Belum ada produk yang dipilih.";
+
+            } else {
+
+                daftar.innerHTML = "";
+
+                keranjang.forEach(function(produk, index) {
+
+                    total += produk.harga;
+
+                    daftar.innerHTML += `
+                        <div class="item-keranjang">
+                            <div>
+                                <b>${produk.nama}</b><br>
+                                Rp${produk.harga.toLocaleString("id-ID")}
+                            </div>
+
+                            <button onclick="hapusProduk(${index})">
+                                Hapus
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById("totalHarga").innerHTML =
+                "Total: Rp" + total.toLocaleString("id-ID");
+        }
+
+        // Menghapus produk
+        function hapusProduk(index) {
+
+            keranjang.splice(index, 1);
+
+            tampilkanKeranjang();
+        }
+
+        // Checkout melalui WhatsApp
+        function checkout() {
+
+            let nama = document.getElementById("namaPembeli").value.trim();
+            let alamat = document.getElementById("alamatPembeli").value.trim();
+            let metode = document.getElementById("metodePembayaran").value;
+
+            if (keranjang.length === 0) {
+                alert("Keranjang kamu masih kosong!");
+                return;
+            }
+
+            if (nama === "" || alamat === "" || metode === "") {
+                alert("Silakan lengkapi data pembeli dan pembayaran!");
+                return;
+            }
+
+            let total = 0;
+
+            let rincian = keranjang.map(function(produk, index) {
+
+                total += produk.harga;
+
+                return (index + 1) + ". " +
+                    produk.nama + " - Rp" +
+                    produk.harga.toLocaleString("id-ID");
+
+            }).join("\n");
+
+            let pesan =
+                "HALO TOKO VAS BUNGA HANNY!\n\n" +
+                "Saya ingin memesan:\n\n" +
+                rincian + "\n\n" +
+                "Total Harga: Rp" + total.toLocaleString("id-ID") + "\n\n" +
+                "Nama Pembeli: " + nama + "\n" +
+                "Alamat Pengiriman: " + alamat + "\n" +
+                "Metode Pembayaran: " + metode + "\n\n" +
+                "Mohon konfirmasi pesanan saya. Terima kasih!";
+
+            let nomor = "6282328588563";
+
+            let url = "https://wa.me/" + nomor +
+                "?text=" + encodeURIComponent(pesan);
+
+            window.open(url, "_blank");
+        }
+
+        // Pencarian produk
+        document.getElementById("search").addEventListener("input", function() {
+
+            let kataKunci = this.value.toLowerCase();
+
+            let produk = document.querySelectorAll("#daftarProduk .card");
+
+            produk.forEach(function(card) {
+
+                let namaProduk = card.querySelector("h3").textContent.toLowerCase();
+
+                card.style.display = namaProduk.includes(kataKunci)
+                    ? "block"
+                    : "none";
+
+            });
+        });
+
+    </script>
+
+</body>
+</html>
